@@ -12,8 +12,10 @@ public class Calculadora implements CalculadoraGeneral{
      * Este sera el almacenamiento que se utilizara para procesar el calculo
      */
 
-    private StackVector<String> stack = new StackVector<String>();
-    public StackFactory<"Vector"> Factory = new StackFactory<"Vector">();
+    
+    public StackFactory Factory = new StackFactory();
+
+    Stack stack = Factory.getStack("Vector");
 
     /**
      * Metodo que se encargara de correr el calculo en notacion postfix

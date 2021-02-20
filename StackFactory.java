@@ -1,21 +1,26 @@
-public class StackFactory<E> {
+public class StackFactory {
 
   public Stack getStack(String stackType) {
-    if(stackType == null) {
+    
+
+    return (Stack)StackVector.newInstance();
+
+    /*if(stackType == null) {
       return null;
     }
+
     if(stackType.equalsIgnoreCase("ArrayList")) {
-      return new StackArrayList<E>();
-      System.out.println("Se instancio un Stack de ArrayList");
+
+      System.out.println("Se instancio un Stack de ArrayLists");
     } else if (stackType.equalsIgnoreCase("List")) {
-      return new StackList<E>();
+
       System.out.println("Se instancio un Stack de Listas");
     } else if (stackType.equalsIgnoreCase("Vector")) {
-      return new StackVector<E>();
+      
+      return new StackVector();
       System.out.println("Se instancio un Stack de Vector");
-    }
+    }*/
 
-    return null;
   }
 
 }
