@@ -3,7 +3,8 @@
 /**
  * Clase que maneja el funcionamiento de calculadora, implementa la interfaz de
  * CalculadoraGeneral.
- * @author
+ * @author Andres de la Roca
+ * @author Jose Reyes
  */
 
 public class Calculadora implements CalculadoraGeneral{
@@ -13,9 +14,16 @@ public class Calculadora implements CalculadoraGeneral{
      */
 
     
-    public StackFactory Factory = new StackFactory();
+    Factory factory = new Factory();
+    
+    int opcion=0;
+    
+    //Stack<String> stack = factory.getStack("Vector");
+    //Vector, ArrayList y List
 
-    Stack stack = Factory.getStack("Vector");
+    //LinkedList<String> stack = factory.getList("Single");
+    LinkedList<String> stack = factory.getList("Double");
+    
 
     /**
      * Metodo que se encargara de correr el calculo en notacion postfix
@@ -23,9 +31,14 @@ public class Calculadora implements CalculadoraGeneral{
      * @return
      */
     public String Calculo(String expresion) {
+        System.out.println("Expresion antes de conversion: " + expresion);
+        expresion = convertidor(expresion);
+        System.out.println("Expresion despues de conversion: " + expresion);
         
         int sizeExpresion = expresion.replace(" ", "").length();
         String expresioncortada = expresion.replace(" ", "");
+
+        System.out.println("Expresion acortada: " + expresioncortada);
 
         for (int i = 0; i < sizeExpresion; i++) {
             String num = expresioncortada.substring(i, i+1);
@@ -56,7 +69,6 @@ public class Calculadora implements CalculadoraGeneral{
                 int OperandoBConvertido = Integer.parseInt(OperandoB);
                 int resultado = OperandoAConvertido * OperandoBConvertido;
                 num = Integer.toString(resultado);
-                
 
             }else if (num.equals("/") && evaluar){
                 String OperandoA = stack.pop();
@@ -68,6 +80,7 @@ public class Calculadora implements CalculadoraGeneral{
                 
 
             }
+            System.out.println(num);
 
             stack.push(num);
         }
@@ -127,4 +140,80 @@ public class Calculadora implements CalculadoraGeneral{
         return unica; 
         
     }
+
+    /*
+    *Metodo que se encarga de revisar un caracter y regresar un valor determinado segun si este es +, -, * o /.
+    */
+    private int Prec(char ch) 
+    { 
+        switch (ch) 
+        { 
+        case '+': 
+        case '-': 
+            return 1; 
+       
+        case '*': 
+        case '/': 
+            return 2; 
+       
+        case '^': 
+            return 3; 
+        } 
+        return -1; 
+    } 
+
+    /*
+    *Metodo que se encarga de convertir una expresion infix dada a postfix para posteriormente ser procesada por el metodo calculo
+    */
+    private String convertidor(String exp) 
+    { 
+       //Almacena en un String la expresion
+        String result = new String(""); 
+          
+        
+        StackVector<Character> stack = new StackVector<Character>();
+
+        //Se realizan chequeos para ver que tipo de operacion es
+        for (int i = 0; i<exp.length(); ++i) 
+        { 
+            char c = exp.charAt(i); 
+              
+             
+            if (Character.isLetterOrDigit(c)) 
+                result += c; 
+               
+            
+            else if (c == '(') 
+                stack.push(c); 
+              
+             
+            else if (c == ')') 
+            { 
+                while (!stack.empty() &&  
+                        stack.peek() != '(') 
+                    result += stack.pop(); 
+                  
+                    stack.pop(); 
+            } 
+            else 
+            { 
+                while (!stack.empty() && Prec(c) <= Prec(stack.peek())){ 
+                    
+                    result += stack.pop(); 
+             } 
+                stack.push(c); 
+            } 
+       
+        } 
+       
+        
+        while (!stack.empty()){ 
+            if(stack.peek() == '(') 
+                return "Invalid Expression"; 
+            result += stack.pop(); 
+         } 
+        return result; 
+    } 
+
+
 }

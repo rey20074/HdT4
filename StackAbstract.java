@@ -1,4 +1,5 @@
-public abstract class StackAbstract extends Stack{
+public abstract class StackAbstract extends Stac{
+
     /**
      * Permite almacenar dentro del stack un objeto
      * @param data
