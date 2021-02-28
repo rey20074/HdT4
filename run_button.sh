@@ -1,2 +1,0 @@
-javac DriverCalculadora.java
-java DriverCalculadora

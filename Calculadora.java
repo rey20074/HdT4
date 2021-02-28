@@ -30,14 +30,11 @@ public class Calculadora implements CalculadoraGeneral{
      * @return
      */
     public String Calculo(String expresion) {
-        System.out.println("Expresion antes de conversion: " + expresion);
         expresion = convertidor(expresion);
-        System.out.println("Expresion despues de conversion: " + expresion);
+        
         
         int sizeExpresion = expresion.replace(" ", "").length();
         String expresioncortada = expresion.replace(" ", "");
-
-        System.out.println("Expresion acortada: " + expresioncortada);
 
         for (int i = 0; i < sizeExpresion; i++) {
             String num = expresioncortada.substring(i, i+1);
@@ -79,7 +76,7 @@ public class Calculadora implements CalculadoraGeneral{
                 
 
             }
-            System.out.println(num);
+            
 
             stack.push(num);
         }
