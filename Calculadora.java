@@ -17,10 +17,18 @@ public class Calculadora implements CalculadoraGeneral{
 
     Factory factory = new Factory();
     
+    //Se puede cambiar entre estos tres tipos de pilas
+    //Pila basada en Vector
     //Stack<String> stack = factory.getStack("Vector");
-    //Vector, ArrayList y List
-
+    //Pila basada en ArrayList
+    //Stack<String> stack = factory.getStack("ArrayList");
+    //Pila basada en List
+    //Stack<String> stack = factory.getStack("List");
+    
+    //Se puede cambiar entre estos tres tipos de listas encadenadas
+    //Lista simplemente encadenada
     //LinkedList<String> stack = factory.getList("Single");
+    //Lista doblemente encadenada
     LinkedList<String> stack = factory.getList("Double");
     
 
