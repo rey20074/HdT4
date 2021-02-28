@@ -1,5 +1,5 @@
 
-
+import java.util.Scanner;
 /**
  * Clase que maneja el funcionamiento de calculadora, implementa la interfaz de
  * CalculadoraGeneral.
@@ -12,11 +12,10 @@ public class Calculadora implements CalculadoraGeneral{
     /**
      * Este sera el almacenamiento que se utilizara para procesar el calculo
      */
+    Scanner scan=new Scanner(System.in);
 
-    
+
     Factory factory = new Factory();
-    
-    int opcion=0;
     
     //Stack<String> stack = factory.getStack("Vector");
     //Vector, ArrayList y List

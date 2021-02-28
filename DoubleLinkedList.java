@@ -1,3 +1,5 @@
+import java.util.;
+
 public class DoubleLinkedList<E> {
 
   class Node<E>{  
@@ -20,7 +22,8 @@ public class DoubleLinkedList<E> {
   Node head, tail = null;  
 
   //metodo push
-  public void pushList(E value){
+  
+  public static void pushList(E value){
     //se crea el nodo
     Node<E> newNode = new Node(value, this.head, null);
     //se comprueba la existencia de nodos en la lista
@@ -36,13 +39,13 @@ public class DoubleLinkedList<E> {
   }
 
   //pop que quita el primer elemento de la lista
-  public E popFromList() {  
+  public E popList() {  
     //si no hay datos no retorna nada
     if(this.head==null) { 
       return null; 
     }
 
-    E oldHeadValue = this.head.data;
+    E oldHeadValue = (E) this.head.data;
     this.head = this.head.next;
     //se comprueba si solo es un nodo
     if(this.head!=null) {
@@ -53,5 +56,9 @@ public class DoubleLinkedList<E> {
     //se regresa el anterior primer nodo ya borrado
     return oldHeadValue;
 
+  }
+
+  public String toString(){
+    return "La cabeza del nodo es "+head+" y la cola del nodo es "+tail;
   }
 }
