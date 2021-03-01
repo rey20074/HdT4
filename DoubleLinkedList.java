@@ -1,4 +1,4 @@
-import java.util.;
+import java.util.*;
 
 public class DoubleLinkedList<E> {
 
@@ -23,7 +23,7 @@ public class DoubleLinkedList<E> {
 
   //metodo push
   
-  public static void pushList(E value){
+  public void pushList(E value){
     //se crea el nodo
     Node<E> newNode = new Node(value, this.head, null);
     //se comprueba la existencia de nodos en la lista

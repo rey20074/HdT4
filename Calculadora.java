@@ -27,9 +27,9 @@ public class Calculadora implements CalculadoraGeneral{
     
     //Se puede cambiar entre estos tres tipos de listas encadenadas
     //Lista simplemente encadenada
-    //LinkedList<String> stack = factory.getList("Single");
+    LinkedList<String> stack = factory.getList("Single");
     //Lista doblemente encadenada
-    LinkedList<String> stack = factory.getList("Double");
+    //LinkedList<String> stack = factory.getList("Double");
     
 
     /**

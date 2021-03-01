@@ -9,12 +9,12 @@ public class DoubleLinked<E> implements LinkedList<E> {
 
   //ingresa un nuevo primer elemento
   public void push(E value) {
-    dlist.pushList();
+    dlist.pushList(value);
   }
 
   //remueve el primer elemento de la lista y lo almacena
   public E pop() {
-    dlist.popList();
+    return dlist.popList();
   }
 
 }

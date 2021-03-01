@@ -29,7 +29,7 @@ public class LinkedListTest {
     @Test
     public void TestPushPopDouble(){
         doublestack.push("Touhou");
-        assertEquals("Touhou", doublestack.peek());
+        assertEquals("Touhou", doublestack.pop());
     }
 
 

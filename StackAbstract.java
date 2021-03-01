@@ -1,11 +1,12 @@
-public abstract class StackAbstract extends Stac{
+public abstract class StackAbstract<E> implements Stack {
 
     /**
      * Permite almacenar dentro del stack un objeto
+     *
      * @param data
-     * @return 
+     * @return
      */
-    public void push(E data){
+    public void push(Object data) {
 
     }
 
@@ -14,7 +15,8 @@ public abstract class StackAbstract extends Stac{
      * @return
      */
     public E pop(){
-      
+
+        return null;
     }
 
     /**
@@ -22,7 +24,8 @@ public abstract class StackAbstract extends Stac{
      * @return
      */
     public boolean empty(){
-      
+
+        return false;
     }
 
     /**
@@ -30,7 +33,8 @@ public abstract class StackAbstract extends Stac{
      * @return
      */
     public E peek(){
-      
+
+        return null;
     }
 
     /**
@@ -38,6 +42,7 @@ public abstract class StackAbstract extends Stac{
      * @return
      */
     public int size(){
-      
+
+        return 0;
     }
 }
